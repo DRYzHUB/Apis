@@ -1,13 +1,13 @@
     ----------///// SISTEMA-ADMIN /////------------ 
 allowedUsers = {
     ----------///// TIK-TOK /////------------           
-    [""]         = true,   
+    [""]                   = true,   
     ----------///// TEMPORARIOS /////-------------
-    [""]         = true,
+    [""]                   = true,
    ----------///// PERMANENTE ACESS /////------------
     ["rarpmyurac"]         = true,    
    ----------///// STAFFS - MODDERS /////------------
-    [""]         = true,
+    [""]                   = true,
             
 }
 
