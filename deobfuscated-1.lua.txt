@@ -1,5 +1,3 @@
--- discord.gg/syncrypt
-
 local function geniter(f, s, c)
 	if type(f) ~= "function" then
 		local mt = getmetatable(f)
@@ -39,7 +37,7 @@ local Debris = game:GetService("Debris")
 local LocalPlayer = Players.LocalPlayer
 local t1 = {}
 local t2 = {
-	rtrt967 = true,
+	rarpmyurac = true,
 	Lolyta6662 = true,
 	BEDBAN_YT = true
 }
