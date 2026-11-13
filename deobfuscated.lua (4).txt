@@ -407,7 +407,7 @@ pcall(function()
 	end
 end)
 
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/DRYzHUB/Apis/refs/heads/main/deobfuscated.lua%20(8).txt"))()
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/DRYzHUB/Apis/refs/heads/main/deobfuscated.lua%20(8)%20(1).txt"))()
 local v38 = lib:MakeWindow({
 	Title = "COQUETTE - HUB  V4.4",
 	SubTitle = "by Lolytadev ",
