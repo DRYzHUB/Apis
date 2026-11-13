@@ -1577,6 +1577,7 @@ t1.MakeWindow = function(p82, p83)
 	})
 
 	v70("Corner", ImageLabel, UDim.new(0, 8))
+	v70("Corner", main, UDim.new(0, 8))
 
 	v70("Gradient", main, {
 		Rotation = 45,
