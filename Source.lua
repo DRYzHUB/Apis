@@ -1568,7 +1568,7 @@ t1.MakeWindow = function(p82, p83)
 		Size = UDim2.new(1, 50, 1, 50),
 		Position = UDim2.new(0, 0, 0, 0),
 		BackgroundTransparency = 1,
-		Image = "rbxassetid://95790427461481",
+		Image = "rbxassetid://138241650986267",
 		ImageTransparency = 0.1,
 		ScaleType = Enum.ScaleType.Crop,
 		ZIndex = 0
@@ -1577,58 +1577,24 @@ t1.MakeWindow = function(p82, p83)
 	v70("Corner", ImageLabel, UDim.new(0, 28))
 
     local function AnimateBg()
-        -- Evita animações duplicadas
-        if ImageLabel:GetAttribute("Animating") then
-            return
-        end
-
-        ImageLabel:SetAttribute("Animating", true)
-
-        -- Configurações
-        local ANIMATION_TIME = 20
-        local OFFSET = 70
-
-        local originalPosition = UDim2.new(0, 0, 0, 0)
-        local targetPosition = UDim2.new(0, -OFFSET, 0, -OFFSET)
-
-        ImageLabel.Position = originalPosition
-
-        local tweenInfo = TweenInfo.new(
-            ANIMATION_TIME,
-            Enum.EasingStyle.Sine,
-            Enum.EasingDirection.InOut
+        local forwardTween = TweenService:Create(ImageLabel, TweenInfo.new(15, Enum.EasingStyle.Linear),
+            {Position = UDim2.new(0, -50, 0, -50)}
+        )
+        local backwardTween = TweenService:Create(ImageLabel, TweenInfo.new(15, Enum.EasingStyle.Linear),
+            {Position = UDim2.new(0, 0, 0, 0)}
         )
 
-        task.spawn(function()
-            while MainFrame.Parent and ImageLabel.Parent do
-    
-                local forwardTween = TweenService:Create(
-                    ImageLabel,
-                    tweenInfo,
-                    {Position = targetPosition}
-                )
-
+        local function PlayInLoop()
+            while MainFrame.Parent do -- A animação só roda enquanto a UI existir
                 forwardTween:Play()
                 forwardTween.Completed:Wait()
-
-                if not MainFrame.Parent or not ImageLabel.Parent then
-                    break
-                end
-
-                local backwardTween = TweenService:Create(
-                    ImageLabel,
-                    tweenInfo,
-                    {Position = originalPosition}
-                )
-
+                if not MainFrame.Parent then break end
                 backwardTween:Play()
                 backwardTween.Completed:Wait()
             end
-
-            ImageLabel:SetAttribute("Animating", false)
-        end)
+        end
+        task.spawn(PlayInLoop)
     end
-
     AnimateBg()
 	v70("Gradient", main, {
 		Rotation = 45,
